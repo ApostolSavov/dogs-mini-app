@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import { getMaxRandomImages } from './services/images';
 
@@ -14,12 +14,9 @@ function App() {
   const onDelete = (imageId) => {
     const freshData = data.filter((imageUrl) => !imageUrl.includes(imageId));
     setData(freshData);
-
-    return < Navigate to="/" replace={true} />;
   };
 
   useEffect(() => {
-
     getMaxRandomImages()
       .then((res) => res.json())
       .then((data) => setData(data.message))
