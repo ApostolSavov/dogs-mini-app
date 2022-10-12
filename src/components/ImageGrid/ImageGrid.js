@@ -1,7 +1,7 @@
 import './ImageGrid.css';
 
 import ImageItem from '../ImageItem/ImageItem';
-import { imageIdGetter } from '../../utils/imageIdGetter';
+import { imageUrlParamGetter } from '../../utils/imageUrlParamGetter';
 
 const ImageGrid = ({ data }) => {
 
@@ -9,9 +9,9 @@ const ImageGrid = ({ data }) => {
         <div className='grid'>
             {
                 data.map((imageUrl) => {
-                    const imageId = imageIdGetter(imageUrl);
+                    const imageUrlParam = imageUrlParamGetter(imageUrl);
 
-                    return <ImageItem key={imageId} id={imageId} imageUrl={imageUrl} />;
+                    return <ImageItem key={imageUrl} urlParam={imageUrlParam} imageUrl={imageUrl} />;
                 })
             }
         </div>

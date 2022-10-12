@@ -1,3 +1,5 @@
+import { baseUrl } from "../utils/constants";
+
 export const getMaxRandomImages = () => {
-    return fetch('https://dog.ceo/api/breeds/image/random/10');
+    return fetch(`${baseUrl}image/random/10`);
 };
